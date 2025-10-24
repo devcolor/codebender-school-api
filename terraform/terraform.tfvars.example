@@ -1,0 +1,8 @@
+# Database configuration
+db_host     = "your-database-host"
+db_user     = "your-database-user"
+db_password = "your-database-password"
+db_port     = "3306"
+
+# AWS configuration
+aws_region = "us-west-2"
