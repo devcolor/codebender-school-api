@@ -1,7 +1,7 @@
-# Database configuration
-db_host     = "your-database-host"
-db_user     = "your-database-user"
-db_password = "your-database-password"
+# Database configuration - Update these with your actual database details
+db_host     = "your-mysql-host.com"
+db_user     = "your-db-username"
+db_password = "your-secure-password"
 db_port     = "3306"
 
 # AWS configuration

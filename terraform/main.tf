@@ -124,6 +124,7 @@ resource "aws_apprunner_service" "devcolor00_school" {
           DB_PASSWORD = var.db_password
           DB_PORT     = var.db_port
         }
+        start_command = "uvicorn api.main:app --host 0.0.0.0 --port 8000"
       }
       image_identifier      = "${aws_ecr_repository.devcolor00_school.repository_url}:latest"
       image_repository_type = "ECR"
