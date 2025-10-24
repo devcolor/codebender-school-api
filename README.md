@@ -127,29 +127,97 @@ Standard HTTP status codes are used to indicate success or failure:
 - `404 Not Found`: Resource not found
 - `500 Internal Server Error`: Server error
 
-## Development
+## Docker Setup
 
-### Running Tests
+### Building the Docker Image
 
+### Using Docker
+
+1. **Build the Docker image:**
 ```bash
-pytest
+docker build -f docker/Dockerfile -t devcolor-backend:prod .
 ```
 
-### Code Style
-
-This project uses `black` for code formatting:
-
+2. **Run the container:**
 ```bash
-black .
+docker run -p 8000:8000 --env-file .env devcolor-backend:prod
 ```
 
-## License
+### Using Docker Compose
 
-[Your License Here]
+1. **Run with Docker Compose:**
+```bash
+docker-compose -f docker/docker-compose.yml up -d
+```
 
-## Support
+2. **Stop the services:**
+```bash
+docker-compose -f docker/docker-compose.yml down
+```
 
-For support, please open an issue in the GitHub repository.
+## CI/CD with GitHub Actions
+
+This project includes automated Docker image building and deployment using GitHub Actions.
+
+### Setting up GitHub Actions
+
+1. **Create the workflow directory:**
+```bash
+mkdir -p .github/workflows
+```
+
+2. **Create the GitHub Actions workflow file** `.github/workflows/docker-build.yml`:
+
+```yaml
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: \\\{\\\{ secrets.DOCKER_USERNAME \\\\}\\\\}
+        password: \\\{\\\{ secrets.DOCKER_PASSWORD \\\\}\\\\}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: \\\{\\\{ secrets.DOCKER_USERNAME \\\\}\\\\}/devcolor-backend:prod
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+```
+
+### Required GitHub Secrets
+
+Add the following secrets to your GitHub repository settings:
+
+- `DOCKER_USERNAME`: Your Docker Hub username
+- `DOCKER_PASSWORD`: Your Docker Hub access token
+
+### Workflow Triggers
+
+The workflow runs automatically on:
+- Pushes to `main` or `develop` branches
+- Pull requests to the `main` branch
+
+The Docker image will be tagged as `devcolor-backend:prod` and pushed to Docker Hub.
 
 **Install required packages:**
 ```bash
