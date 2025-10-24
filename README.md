@@ -1,53 +1,145 @@
-# DevColor Data Generation
+# DevColor Schools API
 
-This project contains scripts for setting up MariaDB databases and generating synthetic data for educational institutions using local or cloud-based LLMs.
+A RESTful API for accessing educational institution data across multiple schools and databases. This service provides standardized access to student, course, and financial aid information.
+
+## Features
+
+- **Multiple Institution Support**: Access data from multiple educational institutions through a unified API
+- **Standardized Endpoints**: Consistent API structure across all institutions
+- **Pagination**: Built-in support for large datasets
+- **Filtering**: Query specific data subsets using query parameters
 
 ## Prerequisites
 
-### 1. Choose Your LLM Provider (Ollama or AWS Bedrock)
+- Python 3.8+
+- MySQL/MariaDB
+- pip (Python package manager)
 
-#### Option 1: Ollama (Recommended for local development)
-**Installation:**
-- **Windows:**
-  1. Go to [ollama.ai](https://ollama.ai) and download the Windows installer
-  2. Run the installer and follow setup instructions
-  3. Alternative: `winget install Ollama.Ollama`
+## Installation
 
-**Start Ollama Service:**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/syntex-data/devcolor-backend-schools.git
+   cd devcolor-backend-schools
+   ```
+
+2. **Set up a virtual environment**
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\Activate.ps1  # Windows
+   source venv/bin/activate      # Linux/Mac
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure environment variables**
+   Copy `.env.example` to `.env` and update with your database credentials:
+   ```
+   DB_HOST=your_database_host
+   DB_USER=your_username
+   DB_PASSWORD=your_password
+   DB_PORT=3306
+   ```
+
+## Running the API
+
+Start the development server:
 ```bash
-ollama serve
+uvicorn main:app --reload
 ```
 
-**Install Mistral Model:**
+The API will be available at `http://localhost:8000`
+
+## API Documentation
+
+Once the server is running, access the interactive API documentation at:
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+## Available Endpoints
+
+### Institution Endpoints
+
+- `GET /` - List all available institutions
+- `GET /{institution_code}/` - Get institution details
+
+### Data Endpoints
+
+For each institution (`AL`, `CSUSB`, `KCTCS`, `KY`, `OH`), the following endpoints are available:
+
+#### Cohorts
+- `GET /{institution_code}/cohorts` - List cohorts
+- `GET /{institution_code}/cohort/count` - Get count of cohorts
+
+#### Courses
+- `GET /{institution_code}/courses` - List courses
+- `GET /{institution_code}/course/count` - Get count of courses
+
+#### Financial Aid
+- `GET /{institution_code}/financial-aid` - List financial aid records
+- `GET /{institution_code}/financial_aid/count` - Get count of financial aid records
+
+## Query Parameters
+
+### Pagination
+- `limit`: Number of records to return (default: 100, max: 1000)
+- `offset`: Number of records to skip (default: 0)
+
+Example:
+```
+/AL/cohorts?limit=10&offset=20
+```
+
+## Response Format
+
+All endpoints return JSON responses with the following structure:
+
+```json
+{
+  "data": [
+    // Array of records
+  ],
+  "count": 123,  // Total number of records
+  "page": 1,     // Current page
+  "total_pages": 13  // Total number of pages
+}
+```
+
+## Error Handling
+
+Standard HTTP status codes are used to indicate success or failure:
+
+- `200 OK`: Request was successful
+- `400 Bad Request`: Invalid request parameters
+- `404 Not Found`: Resource not found
+- `500 Internal Server Error`: Server error
+
+## Development
+
+### Running Tests
+
 ```bash
-ollama pull mistral
+pytest
 ```
 
-**System Requirements:**
-- RAM: At least 8GB (16GB recommended)
-- Storage: 4-8GB for model files
-- CPU: Any modern CPU (more cores = faster generation)
+### Code Style
 
-#### Option 2: AWS Bedrock (For production use)
-**Requirements:**
-- AWS account with Bedrock access
-- IAM user with `bedrock:InvokeModel` permissions
-- AWS CLI configured with valid credentials
+This project uses `black` for code formatting:
 
-**Environment Variables:**
-```
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_DEFAULT_REGION=your_region
-```
-
-### 2. Python Environment Setup
-
-**Create virtual environment:**
 ```bash
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+black .
 ```
+
+## License
+
+[Your License Here]
+
+## Support
+
+For support, please open an issue in the GitHub repository.
 
 **Install required packages:**
 ```bash
