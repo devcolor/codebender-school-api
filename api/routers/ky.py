@@ -6,7 +6,7 @@ from db_operations.connection import get_db_connection, format_records
 router = APIRouter()
 
 # Database configuration for KY
-DATABASE_NAME = "Thomas_More_University_KY"
+DATABASE_NAME = "Thomas_More_University"
 DB_ACRONYM = "KY"
 DB_FULL_NAME = "Thomas More University"
 

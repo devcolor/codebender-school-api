@@ -6,7 +6,7 @@ from db_operations.connection import get_db_connection, format_records
 router = APIRouter()
 
 # Database configuration for OH
-DATABASE_NAME = "University_of_Akron_OH"
+DATABASE_NAME = "University_of_Akron"
 DB_ACRONYM = "OH"
 DB_FULL_NAME = "University of Akron"
 

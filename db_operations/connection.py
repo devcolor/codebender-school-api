@@ -20,8 +20,8 @@ DATABASES = {
     "AL": "Bishop_State_Community_College",
     "CSUSB": "California_State_University_San_Bernardino", 
     "KCTCS": "Kentucky_Community_and_Technical_College_System",
-    "KY": "Thomas_More_University_KY",
-    "OH": "University_of_Akron_OH"
+    "KY": "Thomas_More_University",
+    "OH": "University_of_Akron"
 }
 
 @contextmanager
@@ -49,7 +49,7 @@ def format_records(records):
                 record[key] = float(value)
     return records
 
-async def test_all_connections():
+def test_all_connections():
     """Test connectivity to all databases."""
     health_status = {
         "api": "healthy",
@@ -78,4 +78,9 @@ async def test_all_connections():
                 "error": str(e)
             }
     
+    import json
+    print(json.dumps(health_status, indent=2))
     return health_status
+
+if __name__ == "__main__":
+    test_all_connections()
