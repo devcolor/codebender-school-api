@@ -23,6 +23,29 @@ cd terraform
 terraform init
 ```
 
+### 1.5. Fix IAM Permissions (If Using Existing User)
+
+If you're using an existing IAM user like `devcolor-school`, you need to attach the proper policy:
+
+**Option A: Using AWS CLI**
+```bash
+# Create the policy
+aws iam create-policy \
+  --policy-name devcolor-school-github-actions-policy \
+  --policy-document file://iam-policy-only.json
+
+# Attach to existing user
+aws iam attach-user-policy \
+  --user-name devcolor-school \
+  --policy-arn arn:aws:iam::509399615930:policy/devcolor-school-github-actions-policy
+```
+
+**Option B: Using AWS Console**
+1. Go to IAM → Users → devcolor-school
+2. Click "Add permissions" → "Attach policies directly"
+3. Create new policy using the JSON from `iam-policy-only.json`
+4. Attach the policy to the user
+
 ### 2. Configure Variables
 
 Copy the example variables file and update with your values:
