@@ -32,11 +32,8 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: devcolor00-school
-        IMAGE_TAG: dev
       run: |
-        docker build -f docker/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:dev .
         docker build -f docker/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:dev
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
     # - name: Deploy to App Runner

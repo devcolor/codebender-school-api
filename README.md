@@ -135,12 +135,12 @@ Standard HTTP status codes are used to indicate success or failure:
 
 1. **Build the Docker image:**
 ```bash
-docker build -f docker/Dockerfile -t devcolor-backend:dev .
+docker build -f docker/Dockerfile -t devcolor-backend:latest .
 ```
 
 2. **Run the container:**
 ```bash
-docker run -p 8000:8000 --env-file .env devcolor-backend:dev
+docker run -p 8000:8000 --env-file .env devcolor-backend:latest
 ```
 
 ### Using Docker Compose
@@ -217,7 +217,7 @@ The workflow runs automatically on:
 - Pushes to `main` or `develop` branches
 - Pull requests to the `main` branch
 
-The Docker image will be tagged as `devcolor-backend:dev` and `devcolor-backend:latest` and pushed to ECR.
+The Docker image will be tagged as `latest` and pushed to ECR.
 
 **Install required packages:**
 ```bash
