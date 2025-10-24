@@ -68,7 +68,17 @@ Once the server is running, access the interactive API documentation at:
 
 ### Data Endpoints
 
-For each institution (`AL`, `CSUSB`, `KCTCS`, `KY`, `OH`), the following endpoints are available:
+### Supported Institutions
+
+| Code  | Full Name | Database Name |
+|-------|-----------|---------------|
+| AL    | Bishop State Community College | `Bishop_State` |
+| CSUSB | California State University, San Bernardino | `CSUSB` |
+| KCTCS | Kentucky Community and Technical College System | `KCTCS` |
+| KY    | Thomas More University | `Thomas_More` |
+| OH    | University of Akron | `Akron` |
+
+For each institution, the following endpoints are available:
 
 #### Cohorts
 - `GET /{institution_code}/cohorts` - List cohorts
@@ -175,101 +185,15 @@ This creates 5 databases with 3 tables each:
 - Thomas_More_University (KY)
 - University_of_Akron (OH)
 
-### 2. Test Database Connection
-```bash
-python test_db_connection.py
-```
-
-## Data Generation Scripts (in generate_data/ folder)
-
-### `test_ollama.py`
-- Tests if Ollama is running and accessible
-- Checks if Mistral model is available
-- Performs a test generation to verify functionality
-
-### `course_synthetic.py`
-- Generates synthetic course data using Ollama Mistral LLM
-- Reads seed data from `data/course_analysis_ready_file_template_Identified_01_27_25.xlsx`
-- Removes rows 12+ from seed data (keeps first 11 rows as clean seed data)
-- Generates 200 records per database
-- Adds school acronym to each record
-- Has fallback generation if Ollama is not available
-
-### `cohort_synthetic.py`
-- Generates synthetic cohort data
-- Creates cohort names with semester/year/program combinations
-- Generates appropriate start/end dates
-- Adds 50 records per database
-
-### `financial_aid_synthetic.py`
-- Generates synthetic financial aid data
-- Creates realistic aid types (grants, loans, scholarships, work-study)
-- Generates appropriate amounts based on aid type
-- Adds 100 records per database
-
-## Usage
-
-### 1. Test Ollama connection (optional):
-```bash
-cd generate_data
-python test_ollama.py
-```
-
-### 2. Generate synthetic data:
-```bash
-python course_synthetic.py
-python cohort_synthetic.py
-python financial_aid_synthetic.py
-```
-
-### 3. Count records (optional):
-```bash
-python count_records.py
-```
-
-### 4. Generate Excel summary (optional):
-```bash
-python generate_db_summary.py
-```
-
 ## Data Summary
 
 **Per Database:**
 - Course Records: 200
-- Cohort Records: 50
 - Financial Aid Records: 100
 - Total per school: 350 records
 
 **Grand Total: 1,750 records across all databases**
 
-## Table Structures
-
-### Course Table
-- `id` (AUTO_INCREMENT PRIMARY KEY)
-- `code` (VARCHAR(50))
-- `title` (VARCHAR(255))
-- `credits` (INT)
-- `description` (TEXT)
-- `school` (VARCHAR(10)) - School acronym
-- `created_at` (TIMESTAMP)
-
-### Cohort Table
-- `id` (AUTO_INCREMENT PRIMARY KEY)
-- `name` (VARCHAR(255))
-- `start_date` (DATE)
-- `end_date` (DATE)
-- `school` (VARCHAR(10)) - School acronym
-- `created_at` (TIMESTAMP)
-
-### Financial Aid Table
-- `id` (AUTO_INCREMENT PRIMARY KEY)
-- `student_id` (VARCHAR(50))
-- `aid_type` (VARCHAR(100))
-- `amount` (DECIMAL(10,2))
-- `semester` (VARCHAR(20))
-- `academic_year` (VARCHAR(20))
-- `school` (VARCHAR(10)) - School acronym
-- `created_at` (TIMESTAMP)
 
 ## Join-Ready Structure
 
@@ -286,21 +210,34 @@ All tables include a `school` column with matching acronyms (AL, CSUSB, KCTCS, K
 
 If Ollama is not available or fails, scripts automatically use rule-based synthetic data generation to ensure data is always created.
 
-## Files Structure
+## Project Structure
 
 ```
-devcolor/
-├── .env                          # Database configuration
-├── requirements.txt              # Python dependencies
-├── db_setup.py                  # Creates databases and tables
-├── test_db_connection.py        # Tests database connection
-├── count_records.py             # Counts records in all tables
-├── rename_databases.py          # Utility to rename databases
-├── data/                        # Seed data files
-│   └── course_analysis_ready_file_template_Identified_01_27_25.xlsx
-└── generate_data/               # Synthetic data generation scripts
-    ├── test_ollama.py
-    ├── course_synthetic.py
-    ├── cohort_synthetic.py
-    └── financial_aid_synthetic.py
-```
+devcolor-backend/
+├── api/
+│   ├── __init__.py
+│   ├── main.py                 # API routing setup
+│   ├── schemas.py              # Pydantic models
+│   └── routers/
+│       ├── __init__.py
+│       ├── al.py               # Alabama institution endpoints
+│       ├── csusb.py            # CSUSB institution endpoints
+│       ├── kctcs.py            # KCTCS institution endpoints
+│       ├── ky.py               # Kentucky institution endpoints
+│       └── oh.py               # Ohio institution endpoints
+├── db_operations/
+│   ├── __init__.py
+│   ├── connection.py           # Database connection utilities
+│   ├── db_setup.py             # Database setup and table creation
+│   ├── generate_db_summary.py  # Database summary generation
+│   └── test_db_connection.py   # Database connection testing
+├── .env                        # Environment variables (not version controlled)
+├── .gitignore
+├── check_databases.py          # Database availability checker
+├── check_tables.py             # Table structure inspector
+├── count_records.py            # Record counting utility
+├── main.py                     # FastAPI application entry point
+├── requirements.txt            # Python dependencies
+├── README.md                   # This file
+├── test_env.py                 # Environment variable testing
+└── test_ky_query.py            # KY database query testing
