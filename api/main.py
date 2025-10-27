@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import al, csusb, kctcs, ky, oh
+from .routers import al, csusb, kctcs, ky, oh, upload
 from db_operations.connection import test_all_connections
 
 app = FastAPI(
@@ -46,6 +46,11 @@ app.include_router(
     prefix="/oh", 
     tags=["OH - University of Akron"]
 )
+app.include_router(
+    upload.router,
+    prefix="/upload",
+    tags=["Data Upload"]
+)
 
 @app.get("/", tags=["Root"])
 async def root():
@@ -60,6 +65,7 @@ async def root():
         },
         "endpoints": {
             "health": "/health",
+            "upload": "/upload/",
             "databases": {
                 "AL": "/al/",
                 "CSUSB": "/csusb/", 

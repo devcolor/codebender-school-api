@@ -4,6 +4,12 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
+# DATA UPLOAD REQUIREMENTS:
+# When uploading data via the /upload endpoints, the 'dataset_type' field is REQUIRED:
+#   - 'R' = Real data (actual institutional data)
+#   - 'S' = Synthetic data (generated/test data)
+# This field must be present in all uploaded CSV/Excel files to ensure proper data classification.
+
 # Install system dependencies for MySQL
 RUN apt-get update && apt-get install -y \
     default-libmysqlclient-dev \
