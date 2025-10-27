@@ -13,7 +13,7 @@ router = APIRouter()
 VALID_TABLES = ["cohort", "course", "financial_aid"]
 
 
-@router.get("/", tags=["Upload"])
+@router.get("/")
 async def upload_info():
     """Get information about the upload endpoints."""
     return {
@@ -42,7 +42,7 @@ async def upload_info():
     }
 
 
-@router.post("/{database}/{table}/upload", tags=["Upload"])
+@router.post("/{database}/{table}/upload")
 async def upload_data(
     database: str,
     table: str,
@@ -131,7 +131,7 @@ async def upload_data(
         )
 
 
-@router.get("/templates/{table}", tags=["Upload"])
+@router.get("/templates/{table}")
 async def get_template_info(table: str):
     """
     Get template information for a specific table including required and optional fields.
