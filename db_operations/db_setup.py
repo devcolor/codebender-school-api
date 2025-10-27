@@ -1,3 +1,19 @@
+"""
+Database Setup Script
+
+NOTE: This file contains the LEGACY schema definition used for initial database creation.
+The actual database has been updated with a much more comprehensive schema:
+- cohort table: 89 columns (vs 5 in this file)
+- course table: 39 columns (vs 6 in this file)
+- financial_aid table: 25 columns (vs 7 in this file)
+
+For the current schema structure, see:
+- database_schema.json (exported schema with all columns and types)
+- api/schemas.py (Pydantic models matching current database)
+
+This file is kept for reference and historical purposes.
+"""
+
 import mysql.connector
 from mysql.connector import Error
 import os

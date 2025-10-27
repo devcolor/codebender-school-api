@@ -41,11 +41,13 @@ def get_db_connection(database_name: str):
 
 def format_records(records):
     """Format database records for JSON response."""
+    from decimal import Decimal
+    
     for record in records:
         for key, value in record.items():
             if hasattr(value, 'strftime'):  # datetime objects
                 record[key] = value.strftime('%Y-%m-%d %H:%M:%S')
-            elif key == 'amount' and value is not None:  # decimal amounts
+            elif isinstance(value, Decimal):  # decimal values
                 record[key] = float(value)
     return records
 

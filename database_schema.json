@@ -1,0 +1,1232 @@
+{
+  "cohort": [
+    {
+      "name": "id",
+      "type": "bigint(20)",
+      "nullable": false,
+      "key": "PRI",
+      "default": null,
+      "extra": "auto_increment"
+    },
+    {
+      "name": "Institution_ID",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort",
+      "type": "varchar(57)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Student_GUID",
+      "type": "varchar(58)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort_Term",
+      "type": "varchar(56)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Student_Age",
+      "type": "varchar(64)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrollment_Type",
+      "type": "varchar(61)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrollment_Intensity_First_Term",
+      "type": "varchar(59)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Math_Placement",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "English_Placement",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Dual_and_Summer_Enrollment",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Race",
+      "type": "varchar(91)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Ethnicity",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Gender",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Gen",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Pell_Status_First_Year",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Attendance_Status_Term_1",
+      "type": "varchar(71)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Credential_Type_Sought_Year_1",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Program_of_Study_Term_1",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "GPA_Group_Term_1",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "GPA_Group_Year_1",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Attempted_Year_1",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Earned_Year_1",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Attempted_Year_2",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Earned_Year_2",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Attempted_Year_3",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Earned_Year_3",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Attempted_Year_4",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Earned_Year_4",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Gateway_Math_Status",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Gateway_English_Status",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "AttemptedGatewayMathYear1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "AttemptedGatewayEnglishYear1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "CompletedGatewayMathYear1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "CompletedGatewayEnglishYear1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "GatewayMathGradeY1",
+      "type": "varchar(54)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "GatewayEnglishGradeY1",
+      "type": "varchar(54)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "AttemptedDevMathY1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "AttemptedDevEnglishY1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "CompletedDevMathY1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "CompletedDevEnglishY1",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Retention",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Persistence",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Bachelors_at_cohort_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Associates_or_Certificate_at_cohort_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Bachelor_at_other_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Associates_or_Certificate_at_other_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_of_Last_Enrollment_at_cohort_institution",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_of_Last_Enrollment_at_other_institution",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Time_to_Credential",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Reading_Placement",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Special_Program",
+      "type": "varchar(68)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "NASPA_First_Generation",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Incarcerated_Status",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Military_Status",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Employment_Status",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Disability_Status",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Foreign_Language_Completion",
+      "type": "varchar(61)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Bachelors_at_cohort_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Associates_or_Certificate_at_cohort_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Bachelor_at_other_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Associates_or_Certificate_at_other_inst_",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Program_of_Study_Year_1",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Bachelors_at_Other_Institution_STATE",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Associates_or_Certificate_at_Other_Ins_dccdad65",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Last_Enrollment_at_Other_institution_STATE",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Bachelors_at_Other_Institution_STATE",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Associates_or_Certificate_at_Other_Institution_STATE",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Bachelors_at_Other_Institution_CARNEGIE",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Associates_or_Certificate_at_Other_Ins_5a42b456",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Last_Enrollment_at_Other_institution_CARNEGIE",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Bachelors_at_Other_Institution_CARNEGIE",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Associates_or_Certificate_at_Other_Instituti_9c09d367",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Bachelors_at_Other_Institution_LOCALE",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Associates_or_Certificate_at_Other_Ins_9cc1796c",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Most_Recent_Last_Enrollment_at_Other_institution_LOCALE",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Bachelors_at_Other_Institution_LOCALE",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Associates_or_Certificate_at_Other_Institution_LOCALE",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Latest_Associates_at_Cohort_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Latest_Certificate_at_Cohort_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Latest_Associates_at_Other_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Years_to_Latest_Certificate_at_Other_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Associates_at_Cohort_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Certificate_at_Cohort_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Associates_at_Other_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Year_to_Certificate_at_Other_Inst",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "school",
+      "type": "varchar(10)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "dataset_type",
+      "type": "varchar(1)",
+      "nullable": true,
+      "key": "",
+      "default": "S",
+      "extra": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": true,
+      "key": "",
+      "default": "current_timestamp()",
+      "extra": ""
+    }
+  ],
+  "course": [
+    {
+      "name": "id",
+      "type": "bigint(20)",
+      "nullable": false,
+      "key": "PRI",
+      "default": null,
+      "extra": "auto_increment"
+    },
+    {
+      "name": "Student_GUID",
+      "type": "varchar(58)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Student_Age",
+      "type": "varchar(64)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Race",
+      "type": "varchar(91)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Ethnicity",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Gender",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Institution_ID",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort",
+      "type": "varchar(57)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort_Term",
+      "type": "varchar(56)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Academic_Year",
+      "type": "varchar(57)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Academic_Term",
+      "type": "varchar(56)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Prefix",
+      "type": "varchar(54)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Number",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Section_ID",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Name",
+      "type": "varchar(82)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_CIP",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Type",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Math_or_English_Gateway",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Co_requisite_Course",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Begin_Date",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_End_Date",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Grade",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Attempted",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Number_of_Credits_Earned",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Delivery_Method",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Core_Course",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Core_Course_Type",
+      "type": "varchar(68)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Core_Competency_Completed",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrolled_at_Other_Institutions",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Credential_Engine_Identifier",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Instructor_Employment_Status",
+      "type": "varchar(52)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Course_Instructor_Rank",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrollment_Record_at_Other_Institutions_STATEs",
+      "type": "varchar(53)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrollment_Record_at_Other_Institutions_CARNEGIEs",
+      "type": "decimal(15,2)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Enrollment_Record_at_Other_Institutions_LOCALEs",
+      "type": "varchar(60)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Term_Program_of_Study",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "school",
+      "type": "varchar(10)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "dataset_type",
+      "type": "varchar(1)",
+      "nullable": true,
+      "key": "",
+      "default": "S",
+      "extra": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": true,
+      "key": "",
+      "default": "current_timestamp()",
+      "extra": ""
+    }
+  ],
+  "financial_aid": [
+    {
+      "name": "id",
+      "type": "bigint(20)",
+      "nullable": false,
+      "key": "PRI",
+      "default": null,
+      "extra": "auto_increment"
+    },
+    {
+      "name": "Student_ID",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Institution_ID",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort",
+      "type": "varchar(57)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cohort_Term",
+      "type": "varchar(56)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Academic_Year",
+      "type": "varchar(57)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "First_Name",
+      "type": "varchar(64)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Middle_Name",
+      "type": "varchar(65)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Last_Name",
+      "type": "varchar(63)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "SSN",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Student_Age",
+      "type": "varchar(64)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Date_of_Birth",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Dependency_Status",
+      "type": "varchar(61)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Housing_Status",
+      "type": "varchar(67)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Cost_of_Attendance",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "EFC",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Total_Institutional_Grants",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Total_State_Grants",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Total_Federal_Grants",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Unmet_Need",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Net_Price",
+      "type": "bigint(20)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "Applied_Aid",
+      "type": "varchar(51)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "school",
+      "type": "varchar(10)",
+      "nullable": true,
+      "key": "",
+      "default": null,
+      "extra": ""
+    },
+    {
+      "name": "dataset_type",
+      "type": "varchar(1)",
+      "nullable": true,
+      "key": "",
+      "default": "S",
+      "extra": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamp",
+      "nullable": true,
+      "key": "",
+      "default": "current_timestamp()",
+      "extra": ""
+    }
+  ]
+}
