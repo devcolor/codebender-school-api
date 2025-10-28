@@ -69,45 +69,44 @@ async def get_financial_aid(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching financial aid: {str(e)}")
 
-# TEMPORARILY DISABLED - LLM and AR endpoints for KY
-# @router.get("/llm-recommendations", response_model=List[LlmRecommendationRecord])
-# async def get_llm_recommendations(
-#     limit: int = Query(100, ge=1, le=1000, description="Number of records to return"),
-#     offset: int = Query(0, ge=0, description="Number of records to skip")
-# ):
-#     """Get LLM recommendation records from KY database."""
-#     try:
-#         with get_db_connection(DATABASE_NAME) as connection:
-#             cursor = connection.cursor(dictionary=True)
-#             query = "SELECT * FROM llm_recommendations ORDER BY id LIMIT %s OFFSET %s"
-#             cursor.execute(query, (limit, offset))
-#             records = cursor.fetchall()
-#             cursor.close()
-#             return format_records(records)
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=f"Error fetching LLM recommendations: {str(e)}")
+@router.get("/llm-recommendations", response_model=List[LlmRecommendationRecord])
+async def get_llm_recommendations(
+    limit: int = Query(100, ge=1, le=1000, description="Number of records to return"),
+    offset: int = Query(0, ge=0, description="Number of records to skip")
+):
+    """Get LLM recommendation records from KY database."""
+    try:
+        with get_db_connection(DATABASE_NAME) as connection:
+            cursor = connection.cursor(dictionary=True)
+            query = "SELECT * FROM llm_recommendations ORDER BY id LIMIT %s OFFSET %s"
+            cursor.execute(query, (limit, offset))
+            records = cursor.fetchall()
+            cursor.close()
+            return format_records(records)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching LLM recommendations: {str(e)}")
 
-# @router.get("/analysis-ready", response_model=List[AnalysisReadyRecord])
-# async def get_analysis_ready(
-#     limit: int = Query(100, ge=1, le=1000, description="Number of records to return"),
-#     offset: int = Query(0, ge=0, description="Number of records to skip")
-# ):
-#     """Get analysis ready records from KY database."""
-#     try:
-#         with get_db_connection(DATABASE_NAME) as connection:
-#             cursor = connection.cursor(dictionary=True)
-#             query = "SELECT * FROM ar_ky ORDER BY id LIMIT %s OFFSET %s"
-#             cursor.execute(query, (limit, offset))
-#             records = cursor.fetchall()
-#             cursor.close()
-#             return format_records(records)
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=f"Error fetching analysis ready records: {str(e)}")
+@router.get("/analysis-ready", response_model=List[AnalysisReadyRecord])
+async def get_analysis_ready(
+    limit: int = Query(100, ge=1, le=1000, description="Number of records to return"),
+    offset: int = Query(0, ge=0, description="Number of records to skip")
+):
+    """Get analysis ready records from KY database."""
+    try:
+        with get_db_connection(DATABASE_NAME) as connection:
+            cursor = connection.cursor(dictionary=True)
+            query = "SELECT * FROM ar_ky ORDER BY id LIMIT %s OFFSET %s"
+            cursor.execute(query, (limit, offset))
+            records = cursor.fetchall()
+            cursor.close()
+            return format_records(records)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error fetching analysis ready records: {str(e)}")
 
 @router.get("/{table_name}/count", response_model=TableCount)
 async def get_table_count(table_name: str):
     """Get the total count of records in a specific table."""
-    valid_tables = ["cohort", "course", "financial_aid"]  # Temporarily removed: "llm_recommendations", "ar_ky"
+    valid_tables = ["cohort", "course", "financial_aid", "llm_recommendations", "ar_ky"]
     if table_name not in valid_tables:
         raise HTTPException(
             status_code=404,
