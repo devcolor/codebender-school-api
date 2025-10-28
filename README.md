@@ -8,6 +8,8 @@ A RESTful API for accessing educational institution data across multiple schools
 - **Standardized Endpoints**: Consistent API structure across all institutions
 - **Pagination**: Built-in support for large datasets
 - **Filtering**: Query specific data subsets using query parameters
+ - **Data Uploads**: Upload CSV/Excel to append data with dynamic column mapping (see Data Upload section)
+ - **New Datasets**: Access LLM recommendations and analysis-ready tables across all databases
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ A RESTful API for accessing educational institution data across multiple schools
 
 Start the development server:
 ```bash
-uvicorn main:app --reload
+uvicorn api.main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`
@@ -91,6 +93,20 @@ For each institution, the following endpoints are available:
 #### Financial Aid
 - `GET /{institution_code}/financial-aid` - List financial aid records
 - `GET /{institution_code}/financial_aid/count` - Get count of financial aid records
+
+#### LLM Recommendations
+- `GET /{institution_code}/llm-recommendations` - List LLM recommendation records
+- `GET /{institution_code}/llm_recommendations/count` - Get count of LLM recommendation records
+
+#### Analysis-Ready Data
+- `GET /{institution_code}/analysis-ready` - List analysis-ready records
+- `GET /{institution_code}/ar_{institution_code}/count` - Get count of analysis-ready records
+
+## Data Upload Feature
+
+- Quick start: see `QUICKSTART_UPLOAD.md`
+- Full documentation: see `UPLOAD_FEATURE_README.md`
+- Endpoints are available under `/upload` in Swagger UI.
 
 ## Query Parameters
 
@@ -217,7 +233,7 @@ The workflow runs automatically on:
 - Pushes to `main` or `develop` branches
 - Pull requests to the `main` branch
 
-The Docker image will be tagged as `latest` and pushed to ECR.
+The Docker image will be tagged and pushed to Docker Hub (or your configured registry).
 
 **Install required packages:**
 ```bash
@@ -243,7 +259,7 @@ Each database in this project contains the following three tables:
 
 ### 1. Create Databases and Tables
 ```bash
-python db_setup.py
+python db_operations/db_setup.py
 ```
 
 This creates 5 databases with 3 tables each:
@@ -284,28 +300,34 @@ If Ollama is not available or fails, scripts automatically use rule-based synthe
 devcolor-backend/
 ├── api/
 │   ├── __init__.py
-│   ├── main.py                 # API routing setup
-│   ├── schemas.py              # Pydantic models
+│   ├── main.py                   # FastAPI app and router registration
+│   ├── schemas.py                # Pydantic models
 │   └── routers/
 │       ├── __init__.py
-│       ├── al.py               # Alabama institution endpoints
-│       ├── csusb.py            # CSUSB institution endpoints
-│       ├── kctcs.py            # KCTCS institution endpoints
-│       ├── ky.py               # Kentucky institution endpoints
-│       └── oh.py               # Ohio institution endpoints
+│       ├── al.py                 # AL endpoints (incl. new endpoints)
+│       ├── csusb.py              # CSUSB endpoints (incl. new endpoints)
+│       ├── kctcs.py              # KCTCS endpoints (incl. new endpoints)
+│       ├── ky.py                 # KY endpoints (incl. new endpoints)
+│       ├── oh.py                 # OH endpoints (incl. new endpoints)
+│       └── upload.py             # Data upload endpoints
 ├── db_operations/
 │   ├── __init__.py
-│   ├── connection.py           # Database connection utilities
-│   ├── db_setup.py             # Database setup and table creation
-│   ├── generate_db_summary.py  # Database summary generation
-│   └── test_db_connection.py   # Database connection testing
-├── .env                        # Environment variables (not version controlled)
-├── .gitignore
-├── check_databases.py          # Database availability checker
-├── check_tables.py             # Table structure inspector
-├── count_records.py            # Record counting utility
-├── main.py                     # FastAPI application entry point
-├── requirements.txt            # Python dependencies
-├── README.md                   # This file
-├── test_env.py                 # Environment variable testing
-└── test_ky_query.py            # KY database query testing
+│   ├── connection.py             # DB connection utilities
+│   ├── db_setup.py               # Database setup and table creation
+│   ├── add_dynamic_columns.py    # Migration for dynamic upload columns
+│   ├── upload_handler.py         # Upload processing logic
+│   └── generate_db_summary.py    # Database summary generation
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── testscripts/
+│   ├── check_databases.py
+│   ├── check_schema.py
+│   ├── check_tables.py
+│   ├── count_records.py
+│   └── test_new_endpoints.py
+├── requirements.txt              # Python dependencies
+├── README.md                     # This file
+├── QUICKSTART_UPLOAD.md          # Upload quick start
+├── UPLOAD_FEATURE_README.md      # Upload feature docs
+└── NEW_ENDPOINTS_SUMMARY.md      # Summary of new endpoints

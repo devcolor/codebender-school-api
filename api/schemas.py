@@ -247,4 +247,105 @@ class TableCount(BaseModel):
 class DatabaseInfo(BaseModel):
     acronym: str
     full_name: str
-    available_tables: List[str] = ["cohort", "course", "financial_aid"]
+
+class InstitutionRecord(BaseModel):
+    # Primary Key
+    Institution_ID: int
+    
+    # Core Information
+    Name: str
+    Code: Optional[str] = None
+    
+    # Hierarchy
+    Institution_Type: str  # 'system' or 'institution'
+    Parent_Institution_ID: Optional[int] = None
+    
+    # Location
+    State: Optional[str] = None
+    
+    # Status
+    Active: Optional[bool] = True
+    
+    # Metadata
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+
+class InstitutionHierarchy(BaseModel):
+    """View model for institution hierarchy with parent information."""
+    Institution_ID: int
+    Institution_Name: str
+    Institution_Code: Optional[str] = None
+    Institution_Type: str
+    State: Optional[str] = None
+    Parent_Institution_ID: Optional[int] = None
+    System_Name: Optional[str] = None
+    System_Code: Optional[str] = None
+    Reporting_Institution_ID: int
+    Reporting_Institution_Name: str
+
+class LlmRecommendationRecord(BaseModel):
+    # Primary Key
+    id: Optional[int] = None
+    
+    # Student Identification
+    Student_GUID: str
+    Institution_ID: Optional[int] = None
+    Cohort: Optional[str] = None
+    Cohort_Term: Optional[str] = None
+    Academic_Year: Optional[str] = None
+    school: Optional[str] = None
+    
+    # Recommendation Details
+    recommendation_type: str
+    readiness_score: Optional[Decimal] = None
+    readiness_level: Optional[str] = None
+    rationale: Optional[str] = None
+    risk_factors: Optional[str] = None
+    suggested_actions: Optional[str] = None
+    
+    # Input Data
+    inputs_snapshot: Optional[str] = None
+    course_summaries: Optional[str] = None
+    
+    # Model Information
+    prompt_version: str
+    model_name: str
+    model_version: Optional[str] = None
+    input_hash: str
+    
+    # Status
+    status: str
+    error_message: Optional[str] = None
+    generated_at: Optional[str] = None
+
+class AnalysisReadyRecord(BaseModel):
+    # Primary Key
+    id: Optional[int] = None
+    
+    # Student Identification
+    student_id: str
+    
+    # Completion Time - Bachelors
+    years_to_bachelors_cohort: Optional[str] = None
+    years_to_bachelor_other: Optional[str] = None
+    first_year_bachelors_cohort: Optional[str] = None
+    first_year_bachelor_other: Optional[str] = None
+    
+    # Completion Time - Associates/Certificate
+    years_to_assoc_cert_cohort: Optional[str] = None
+    years_to_assoc_cert_other: Optional[str] = None
+    first_year_assoc_cert_cohort: Optional[str] = None
+    first_year_assoc_cert_other: Optional[str] = None
+    
+    # Demographics
+    naspa_first_gen: Optional[str] = None
+    
+    # Other Institution Details
+    recent_assoc_cert_other_state: Optional[str] = None
+    recent_assoc_cert_other_carnegie: Optional[str] = None
+    first_assoc_cert_other_carnegie: Optional[str] = None
+    recent_assoc_cert_other_locale: Optional[str] = None
+    
+    # Metadata
+    school: Optional[str] = None
+    created_at: Optional[str] = None

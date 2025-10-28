@@ -49,3 +49,6 @@ migrations/MIGRATION_SUMMARY.md
 migrations/KENTUCKY_INSTITUTION_IDS.md
 check_env.py
 migrations/REGENERATION_README.md
+testscripts/test_new_endpoints.py
+testscripts/check_llm_structure.py
+NEW_ENDPOINTS_SUMMARY.md
