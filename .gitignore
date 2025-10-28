@@ -52,3 +52,4 @@ migrations/REGENERATION_README.md
 testscripts/test_new_endpoints.py
 testscripts/check_llm_structure.py
 NEW_ENDPOINTS_SUMMARY.md
+testscripts/test_unified_endpoint.py

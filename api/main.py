@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import al, csusb, kctcs, ky, oh, upload
+from .routers import al, csusb, kctcs, ky, oh, upload, unified
 from db_operations.connection import test_all_connections
 
 app = FastAPI(
@@ -51,6 +51,11 @@ app.include_router(
     prefix="/upload",
     tags=["Data Upload"]
 )
+app.include_router(
+    unified.router,
+    prefix="/unified",
+    tags=["Unified - Query Any Database/Table"]
+)
 
 @app.get("/", tags=["Root"])
 async def root():
@@ -66,6 +71,7 @@ async def root():
         "endpoints": {
             "health": "/health",
             "upload": "/upload/",
+            "unified": "/unified/data",
             "databases": {
                 "AL": "/al/",
                 "CSUSB": "/csusb/", 
